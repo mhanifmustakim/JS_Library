@@ -1,0 +1,10 @@
+h1{
+    text-align: center;
+}
+.book{
+    background-color: wheat;
+    margin: 5px 5px;
+}
+#add-book-form{
+    display: none;
+}
