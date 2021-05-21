@@ -18,13 +18,17 @@ h1{
     position: fixed;
     top: 0;
 }
+button > a {
+    text-decoration: none;
+    color: inherit;
+}
 #collection{
     display: flex;
     flex-direction: column;
     width: 90vw;
     margin: 4rem auto 10px auto;
 }
-.book{
+.card{
     background-color: #F6D4D2;
     padding: 10px;
     margin-bottom: 1rem;
@@ -64,14 +68,36 @@ h1{
     width: 100%;
     justify-content: space-evenly;
 }
-#options > button{
+#options button{
     border-radius: 0.5em;
     width: 40%;
 }
 #add-book-form{
-    display: none;
+  display: none;
+  border: 0.3em solid #4120A9;
+  width: 90%;
+  height: 15em;
+  position: relative;
+  left: 5%;
+  top: 25%;
 }
-
+#add-book-form > label{
+    width: 15rem;
+    display: inline-block;
+}
+#add-book-form > input{
+    margin-bottom: 0.2rem;
+}
+#add-book-form > input[type=text], #add-book-form > input[type=number]{
+    width: 100%;
+}
+#add-book-form > input[type=submit], #add-book-form > button{
+    width: 5rem;
+}
+#add-book-form > header{
+    text-align: center;
+    font-weight: bold;
+}
 @media (min-width: 700px){
     *{
         font-size: 20px;
@@ -92,12 +118,21 @@ h1{
     #options > button{
         width: 12%;
     }
+    #add-book-form{
+        width: 70%;
+        left: 15%;
+        padding: 0.5rem 5%;
+    }
 }
 @media (min-width:1200px){
     *{
         font-size: 25px;
     }
     .book{
-        width: 30%;
+        width: 40%;
+    }
+    #add-book-form{
+        width: 60%;
+        left: 20%;
     }
 }

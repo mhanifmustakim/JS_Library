@@ -111,12 +111,18 @@ function createCard(book) {
     const link = book.link ? addLink(book) : null;
     const delBtn = addConfigs(book)
     card.classList.add("book");
+    card.classList.add("card");
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
     if (book.link) { card.append(link); }
     card.appendChild(delBtn)
     return card;
+}
+//TOGGLES THE OPTIONS BUTTONS
+function toggleOptions(status) {
+    addBookBtn.style.display = status;
+    clearBtn.style.display = status;
 }
 //RESETS THE FORM AND CLOSES IT
 function resetForm() {
@@ -158,6 +164,7 @@ const clearBtn = document.querySelector("#clear-btn")
 
 addBookBtn.addEventListener("click", () => {
     addBookForm.style.display = addBookForm.style.display == "block" ? "none" : "block";
+    toggleOptions("none");
 })
 addBookForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -166,9 +173,13 @@ addBookForm.addEventListener("submit", (e) => {
     newBook.link = e.target[3].value ? e.target[3].value : null;
     myLibrary.push(newBook);
     resetForm();
+    toggleOptions();
     updateLibrary();
 })
-formExitBtn.addEventListener("click", resetForm)
+formExitBtn.addEventListener("click", () => {
+    resetForm();
+    toggleOptions("inline-block");
+})
 clearBtn.addEventListener("click", () => { localStorage.clear(); myLibrary.splice(0, myLibrary.length); updateLibrary() })
 
 
