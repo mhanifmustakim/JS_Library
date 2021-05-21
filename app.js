@@ -75,6 +75,7 @@ function addPageCount(book) {
 //CREATE LINK FROM BOOK OBJECT
 function addLink(book) {
     const Link = document.createElement("div");
+    Link.classList.add("link");
     const a = document.createElement("a");
     a.setAttribute("href", book.link);
     a.setAttribute("target", "_blank");
@@ -85,12 +86,13 @@ function addLink(book) {
 //CREATE READ & DELETE BTN FOR CARD OF LIBRARY
 function addConfigs(book) {
     const res = document.createElement("div")
+    res.classList.add("config");
     const delBtn = document.createElement("button")
     delBtn.textContent = "DELETE";
     delBtn.classList.add("del-book-btn");
     const updateBtn = document.createElement("button");
     updateBtn.classList.add("read-status-btn");
-    let condition = book.isRead ? "Reset" : "Finished Reading";
+    let condition = book.isRead ? "Reset" : "Finished";
     updateBtn.textContent = condition;
     updateBtn.addEventListener("click", () => {
         book.toggleReadStatus();
@@ -111,8 +113,8 @@ function createCard(book) {
     card.classList.add("book");
     card.appendChild(title);
     card.appendChild(author);
-    if (book.link) { card.append(link); }
     card.appendChild(pages);
+    if (book.link) { card.append(link); }
     card.appendChild(delBtn)
     return card;
 }

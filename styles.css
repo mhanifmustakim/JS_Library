@@ -1,10 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+body{
+    background-color: #A16AE8;
+}
 h1{
+    width: 100vw;;
+    color: #e1e3f8;
+    background-color: #4120A9;
     text-align: center;
+    font-family:cursive;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    position: fixed;
+    top: 0;
+}
+#collection{
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    margin: 4rem auto 10px auto;
 }
 .book{
-    background-color: wheat;
-    margin: 5px 5px;
+    background-color: #F6D4D2;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border-radius: 1em;
+}
+.book > .title, .book > .author{
+    text-align: center;
+}
+.book > .title {
+    font-size: 1.5em;
+    font-family:sans-serif;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+}
+.book > .author{
+    font-size: 0.9em ;
+}
+.book > .page-count{
+    margin: 0.5rem 0;
+    padding-left: 10%;
+} 
+.book > .link{
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+.book > .config{
+    display: flex;
+    justify-content: space-around;
+}
+.config > button{
+    width: 40%;
+    border-radius: 1em;
+}
+#options{
+    margin: 0.5rem 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+#options > button{
+    border-radius: 0.5em;
+    width: 40%;
 }
 #add-book-form{
     display: none;
+}
+
+@media (min-width: 700px){
+    *{
+        font-size: 20px;
+    }
+    #collection{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    .book{
+        width: 40%;
+    }
+    #options{
+        position: fixed;
+        justify-content: flex-end;
+        bottom: 0;
+    }
+    #options > button{
+        width: 12%;
+    }
+}
+@media (min-width:1200px){
+    *{
+        font-size: 25px;
+    }
+    .book{
+        width: 30%;
+    }
 }
